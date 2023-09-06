@@ -4,7 +4,7 @@ name: Czy's blog on github
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [$default-branch]
+    branches: main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +24,7 @@ concurrency:
 # Default to bash
 defaults:
   run:
-    shell: bash
+    shell: powershell
 
 jobs:
   # Build job
@@ -48,6 +48,7 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://github.com/jgm/pandoc/releases/download/3.1.7/pandoc-3.1.7-windows-x86_64.msi -OutFile pandoc.msi
           Start-Process msiexec.exe -Wait -ArgumentList '/i pandoc.msi /quiet'
+          pandoc --version
       - name: Build with Hexo
         run: npx hexo g
       - name: Upload artifact
