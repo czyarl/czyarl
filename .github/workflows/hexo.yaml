@@ -44,6 +44,8 @@ jobs:
           node-version: "18"
       - name: Install Dependencies
         run: npm install
+      - name: Install Pandoc
+        run: winget install --source winget --exact --id JohnMacFarlane.Pandoc
       - name: Build with Hexo
         run: npx hexo g
       - name: Upload artifact
