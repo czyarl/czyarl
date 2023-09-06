@@ -45,7 +45,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Install Pandoc
-        run: winget install --source winget --exact --id JohnMacFarlane.Pandoc
+        run: |
+          Invoke-WebRequest -Uri https://github.com/jgm/pandoc/releases/download/3.1.7/pandoc-3.1.7-windows-x86_64.msi -OutFile pandoc.msi
+          Start-Process msiexec.exe -Wait -ArgumentList '/i pandoc.msi /quiet'
       - name: Build with Hexo
         run: npx hexo g
       - name: Upload artifact
