@@ -24,12 +24,12 @@ concurrency:
 # Default to bash
 defaults:
   run:
-    shell: powershell
+    shell: bash
 
 jobs:
   # Build job
   build:
-    runs-on: windows-latest
+    runs-on: linux-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,11 +44,11 @@ jobs:
           node-version: "18"
       - name: Install Dependencies
         run: npm install
-      - name: Install Pandoc
-        run: |
-          Invoke-WebRequest -Uri https://github.com/jgm/pandoc/releases/download/3.1.7/pandoc-3.1.7-windows-x86_64.msi -OutFile pandoc.msi
-          Start-Process msiexec.exe -Wait -ArgumentList '/i pandoc.msi /quiet'
-          Wait-Process -Name msiexec
+      # - name: Install Pandoc
+      #   run: |
+      #     Invoke-WebRequest -Uri https://github.com/jgm/pandoc/releases/download/3.1.7/pandoc-3.1.7-windows-x86_64.msi -OutFile pandoc.msi
+      #     Start-Process msiexec.exe -Wait -ArgumentList '/i pandoc.msi /quiet'
+      #     Wait-Process -Name msiexec
       - name: Build with Hexo
         run: npx hexo g
       - name: Upload artifact
@@ -61,7 +61,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: windows-latest
+    runs-on: linux-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
