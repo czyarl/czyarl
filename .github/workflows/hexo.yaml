@@ -24,7 +24,7 @@ concurrency:
 # Default to bash
 defaults:
   run:
-    shell: powershell
+    shell: pwsh
 
 jobs:
   # Build job
