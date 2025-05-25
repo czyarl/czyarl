@@ -1,8 +1,5 @@
 # czy-hexo-blog
 
-嘿嘿，这个博客还没有配出来。懒。
+这里曾经想配一个博客，但是中道崩殂了。
 
-hexo: https://hexo.io/zh-cn/ 
-hexo-next: https://theme-next.js.org/ 
-
-my previous blog: https://www.cnblogs.com/czyarl/ 
+my blog: https://www.cnblogs.com/czyarl/ 
