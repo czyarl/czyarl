@@ -1,5 +1,5 @@
-# czy-hexo-blog
+# Zheyu Chen
 
-这里曾经想配一个博客，但是中道崩殂了。
+Forth year at Zhili College, Tsinghua University. Major: Information and Computing Science
 
-my blog: https://www.cnblogs.com/czyarl/ 
+my old blog Olymiad in Informatics: https://www.cnblogs.com/czyarl/ 
